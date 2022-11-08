@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+.page{
+    padding: 35px 30px 35px 30px;
+    margin: 0;
+
+    background: url("/images/background.png");
+}
+
+.project__title {
+    margin: 0;
+
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+
+    color: black;
+}
