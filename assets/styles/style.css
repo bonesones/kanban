@@ -7,6 +7,11 @@
     background: url("/images/background.png");
 }
 
+header{
+    display:flex;
+    justify-content: space-between;
+}
+
 .project__title {
     margin: 0;
 
@@ -14,6 +19,102 @@
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
+    line-height: 70px;
 
     color: black;
+}
+
+.project-options{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.project__users{
+    display: flex;
+    gap: 2.3px;
+}
+
+.project__hidden-users{
+    width: 53.59px;
+    height: 53.59px;
+
+    text-align: center;
+    line-height: 55px;
+
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;                
+}
+
+.project__add-board-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    cursor: pointer;
+    border: none;
+
+    width: 160px;
+    height: 70px;
+
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.project__add-board-title{
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.project__calendar-and-recents-button{
+    text-align: center;
+    line-height: 75px;
+    cursor: pointer;
+
+    width: 70px;
+    height: 70px;
+
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.main{
+    margin-top: 36px;
+}
+
+.to-do{
+    width: 580px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+}
+
+.to-do-container{
+    padding: 20px 40px;
+}
+
+.to-do__title{
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+
+    float: left;
+
+    margin: 0
+}
+
+.to-do__settings-button{
+    font-size: 30px;
+    float: right;
+    
+    border: none;
 }

@@ -5,9 +5,20 @@ block title
     
 
 block content 
-    header.project-header
+    header.header
         h1.project__title #{title}
         div.project-options
             div.project__users
-                - for(let i = 0; i < 6; i++)
-                    img(src="/images/user.png", class="project__user")
+                - for(let i = 0; i < 5; i++)
+                    img(src="/images/user.png" class="project__user" alt="Аватар участника")
+                div.project__hidden-users +6   
+            button.project__add-board-button
+                span.project__add-board-title Add board
+                img(src="/images/add-board.svg" class="project__add-board-image" alt="Добавить доску")
+            button.project__calendar-and-recents-button
+                img(src="/images/arrow.svg" class="project__calendar-and-recents-image")
+    main.main
+        section.to-do
+            div.to-do-container
+                header.to-do__header
+                    h2.to-do__title To do

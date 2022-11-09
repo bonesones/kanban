@@ -8,9 +8,10 @@ app.use('/images', express.static(`${__dirname}/assets/images`));
 app.use('/styles', express.static(`${__dirname}/assets/styles`));
 
 
+
 app.use('/dashboard', (request, response) => {
     response.render('dashboard', {
-        title: "Project name",
+        title: "Test list",
         users: 0
     })
 })
