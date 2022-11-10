@@ -1,5 +1,5 @@
 const express = require('express');
-
+    
 const app = express();
 
 app.set('view engine', 'pug');
@@ -10,10 +10,7 @@ app.use('/styles', express.static(`${__dirname}/assets/styles`));
 
 
 app.use('/dashboard', (request, response) => {
-    response.render('dashboard', {
-        title: "Test list",
-        users: 0
-    })
+    response.render('dashboard', variables)
 })
 
 app.listen(3000)
