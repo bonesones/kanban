@@ -2,9 +2,9 @@ extends layout.pug
 
 block title
     title #{title}
-    
 
-block content 
+
+block content
     header.header
         h1.project__title #{title}
         div.project-options
@@ -25,18 +25,20 @@ block content
                     button.to-do__settings.button
                         img(src="/images/main-settings.svg" alt=("Троеточие для открытия настроек списка"))
 
-                div.to-do-task
-                    div.to-do-task__title-container.priority_high-level
-                        h3.to-do-task__title Что-то
-                    div.to-do-task__description-container
-                        p.to-do-task__description Описание чего-то
-                    div.to-do__statuses
-                        div.to-do__task-info
-                            button.to-do__task-options-button.button
-                                img(src="/images/arrow.svg")
-                            img(src="/images/messages.png", class="to-do__task-option-messages")
-                            div.to-do__task-time
-                                img(src="/images/time.png")
+                each task in tasks.todo
+                    div.to-do-task
+                        div.to-do-task__title-container.priority_high-level
+                            h3.to-do-task__title #{task.title}
+                        div.to-do-task__description-container
+                            p.to-do-task__description #{task.description}
+                        div.to-do__statuses
+                            div.to-do__task-info
+                                button.to-do__task-options-button.button
+                                    img(src="/images/arrow.svg")
+                                img(src="/images/messages.png", class="to-do__task-option-messages")
+                                div.to-do__task-time
+                                    img(src="/images/time.png")
+                                    span.to-do__time-counter #{task.expires}
 
 
                             
