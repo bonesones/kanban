@@ -7,7 +7,7 @@ app.set('view engine', 'pug');
 
 app.use('/images', express.static(`${__dirname}/assets/images`));
 app.use('/styles', express.static(`${__dirname}/assets/styles`));
-
+app.use('/scripts', express.static(`${__dirname}/assets/scripts`));
 
 
 app.use('/dashboard', (request, response) => {

@@ -1,215 +1,346 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
-
-.page{
-    padding: 35px 30px 35px 30px;
-    margin: 0;
-
-    background: url("/images/background.png");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+.page {
+  padding: 35px 30px 35px 30px;
+  margin: 0;
+  background: url("/images/background.png");
 }
 
-header{
-    display:flex;
-    justify-content: space-between;
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-background-disable {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+.modal-background-disable_active {
+  display: block;
 }
 
 .project__title {
-    margin: 0;
-
-    font-family: 'Comfortaa';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 70px;
-
-    color: black;
+  margin: 0;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 70px;
+  color: black;
+}
+@media screen and (max-width: 1600px) {
+  .project__title {
+    font-size: 42px;
+  }
+}
+.project-options {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.project__users {
+  display: flex;
+  gap: 2.3px;
+}
+@media screen and (max-width: 1600px) {
+  .project__user {
+    width: 45px;
+    height: 45px;
+  }
+}
+.project__hidden-users {
+  width: 53.59px;
+  height: 53.59px;
+  text-align: center;
+  line-height: 55px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+}
+@media screen and (max-width: 1600px) {
+  .project__hidden-users {
+    width: 45px;
+    height: 45px;
+    font-size: 26px;
+    line-height: 45px;
+  }
+}
+.project__add-board-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+  width: 160px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+@media screen and (max-width: 1600px) {
+  .project__add-board-button {
+    width: 140px;
+    height: 60px;
+  }
+}
+.project__add-board-title {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+@media screen and (max-width: 1600px) {
+  .project__add-board-title {
+    font-size: 12px;
+  }
+}
+.project__calendar-and-recents-button {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+}
+@media screen and (max-width: 1600px) {
+  .project__calendar-and-recents-button {
+    width: 60px;
+    height: 60px;
+  }
 }
 
-.project-options{
-    display: flex;
-    align-items: center;
-    gap: 30px;
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 36px;
 }
 
-.project__users{
-    display: flex;
-    gap: 2.3px;
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30%;
+}
+.tasks-menu-add {
+  transition: all 0.4s;
+  opacity: 0;
+  width: 580px;
+  height: 95%;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: #D9D9D9;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.tasks-menu-add_active {
+  transition: all 0.4s;
+  opacity: 1;
+}
+.tasks-menu-add-container {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.tasks-menu-add__title {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+}
+@media screen and (max-width: 1600px) {
+  .tasks-menu-add__title {
+    font-size: 28px;
+  }
+}
+.tasks-menu-add-fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+.tasks-menu-add-fieldset label {
+  display: inline-block;
+  width: 27%;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .tasks-menu-add-fieldset label {
+    font-size: 18px;
+  }
+}
+.tasks-menu-add-fieldset__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tasks-menu-add-fieldset__item:last-of-type {
+  align-items: flex-start;
+}
+.tasks-menu-add-fieldset__input {
+  background: inherit;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid black;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  width: 55%;
+}
+.tasks-menu-add-fieldset__input:focus {
+  outline: none;
+}
+.tasks-menu-add-fieldset__clear-field-button {
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.tasks-menu-add-fieldset__textarea {
+  resize: none;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  width: 55%;
+}
+.tasks-menu-add-fieldset__textarea:focus {
+  outline: none;
+}
+.tasks-container {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.tasks__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.tasks__title {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  float: left;
+  margin: 0;
+}
+@media screen and (max-width: 1600px) {
+  .tasks__title {
+    font-size: 28px;
+  }
+}
+.tasks__settings-button {
+  font-size: 30px;
+  float: right;
+  border: none;
+}
+.tasks-task {
+  width: 100%;
+  height: 165px;
+  padding: 20px 20px 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+.tasks-task__title {
+  font-size: 18px;
+  font-family: "Comfortaa";
+  font-weight: 600;
+  margin: 0;
+  padding: 4px;
+  display: inline-block;
+}
+.tasks-task__title-container {
+  background: rgba(255, 98, 98, 0.7);
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+  width: 70%;
+}
+@media screen and (max-width: 1500px) {
+  .tasks-task__title {
+    font-size: 16px;
+  }
+}
+.tasks-task__description-container {
+  font-family: "Comfortaa";
+}
+.tasks-task__info {
+  display: flex;
+  gap: 10px;
+}
+.tasks-task__options-button {
+  opacity: 0.5;
+}
+.tasks-task__statuses {
+  display: flex;
+  justify-content: space-between;
+}
+.tasks-task__time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.tasks-task__time-counter {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.tasks-task__time-completed {
+  align-self: center;
+}
+.tasks-task__time-date-completed {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.tasks__add-button {
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  border-radius: 10px;
+  font-size: 26px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-.project__hidden-users{
-    width: 53.59px;
-    height: 53.59px;
-
-    text-align: center;
-    line-height: 55px;
-
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-
-    font-family: 'Comfortaa';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;                
+.button {
+  border: none;
+  cursor: pointer;
+  background-color: inherit;
+  padding: 0;
 }
 
-.project__add-board-button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    cursor: pointer;
-    border: none;
-
-    width: 160px;
-    height: 70px;
-
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-}
-
-.project__add-board-title{
-    font-family: 'Comfortaa';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-}
-
-.project__calendar-and-recents-button{
-    text-align: center;
-    line-height: 75px;
-    cursor: pointer;
-
-    width: 70px;
-    height: 70px;
-
-    border: none;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-}
-
-.main{
-    margin-top: 36px;
-}
-
-.to-do{
-    width: 580px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
-}
-
-.to-do-container{
-    padding: 20px 40px;
-}
-
-.to-do__header{
-    margin-bottom: 10px;
-}
-
-.to-do__title{
-    font-family: 'Comfortaa';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-
-    float: left;
-
-    margin: 0
-}
-
-.to-do__settings-button{
-    font-size: 30px;
-    float: right;
-    
-    border: none;
-}
-
-.button{
-
-    border: none;
-    cursor: pointer;
-
-    background-color: inherit;
-
-    padding: 0;
-}
-
-.to-do-task{
-    width: 500px;
-    height: 165px;
-
-    position: relative;
-
-    margin-bottom: 15px;
-
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
-}
-
-.to-do-task__title{
-    font-size: 20px;
-    font-family: "Comfortaa";
-    font-weight: 600;
-
-    margin: 5px 100px 5px 10px;
-
-    display: inline-block;
-}
-
-
-.to-do-task__title-container{
-    background: rgba(255, 98, 98, 0.7);
-    border-radius: 10px;
-
-    display: inline-block;
-
-    text-align: center;
-    
-    margin-left: 20px;
-    margin-top: 20px;
-}
-
-.priority_high-level{
-    background: rgba(255, 98, 98, 0.7);
-}
-
-.to-do-task__description-container{
-    margin-left: 20px;
-
-    font-family: "Comfortaa";
-}
-
-.to-do__statuses{
-    margin-left: 20px;
-    margin-top: 16px;
-
-    position: absolute;
-    bottom: 1rem;
-}
-
-.to-do__task-info{
-    float: right;
-    
-    display: flex;
-
-    gap: 10px;
-}
-
-.to-do__task-options-button{
-    opacity: .5;
-}
-
-.to-do__task-time{
-   display: flex;
-   align-items: center;
-   
-   gap: 5px;
-}
-
-.to-do__time-counter{
-    font-family: 'Comfortaa';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-
-    color: rgba(0, 0, 0, 0.6);
-}
+.priority_high-level {
+  background: rgba(255, 98, 98, 0.7);
+}/*# sourceMappingURL=style.css.map */

@@ -18,29 +18,88 @@ block content
             button.project__calendar-and-recents-button
                 img(src="/images/arrow.svg" class="project__calendar-and-recents-image")
     main.main
-        section.to-do
-            div.to-do-container
-                header.to-do__header
-                    h2.to-do__title To do
-                    button.to-do__settings.button
+        section.tasks
+            div.tasks-container
+                header.tasks__header
+                    h2.tasks__title To do
+                    button.tasks__settings.button
                         img(src="/images/main-settings.svg" alt=("Троеточие для открытия настроек списка"))
 
                 each task in tasks.todo
-                    div.to-do-task
-                        div.to-do-task__title-container.priority_high-level
-                            h3.to-do-task__title #{task.title}
-                        div.to-do-task__description-container
-                            p.to-do-task__description #{task.description}
-                        div.to-do__statuses
-                            div.to-do__task-info
-                                button.to-do__task-options-button.button
+                    div.tasks-task
+                        div.tasks-task__title-container.priority_high-level
+                            h3.tasks-task__title #{task.title}
+                        div.tasks-task__description-container
+                            p.tasks-task__description #{task.description}
+                        div.tasks-task__statuses
+                            div.tasks-task__info
+                                button.tasks-task__options-button.button
                                     img(src="/images/arrow.svg")
-                                img(src="/images/messages.png", class="to-do__task-option-messages")
-                                div.to-do__task-time
+                                img(src="/images/messages.png", class="tasks-task-option-messages")
+                                div.tasks-task__time
                                     img(src="/images/time.png")
-                                    span.to-do__time-counter #{task.expires}
+                                    span.tasks-task__time-counter #{task.expires}
+            button.tasks__add-button +
+        section.tasks
+            div.tasks-container
+                header.tasks__header
+                    h2.tasks__title In work
+                    button.tasks__settings.button
+                        img(src="/images/main-settings.svg" alt=("Троеточие для открытия настроек списка"))
 
+                each task in tasks.inWork
+                    div.tasks-task
+                        div.tasks-task__title-container.priority_high-level
+                            h3.tasks-task__title #{task.title}
+                        div.tasks-task__description-container
+                            p.tasks-task__description #{task.description}
+                        div.tasks-task__statuses
+                            div.tasks-task__info
+                                button.tasks-task__options-button.button
+                                    img(src="/images/arrow.svg")
+                                img(src="/images/messages.png", class="tasks-task-option-messages")
+                                div.tasks-task__time
+                                    img(src="/images/time.png")
+                                    span.tasks-task__time-counter #{task.expires}
+            button.tasks__add-button +                
+        section.tasks
+            div.tasks-container
+                header.tasks__header
+                    h2.tasks__title Done
+                    button.tasks__settings.button
+                        img(src="/images/main-settings.svg" alt=("Троеточие для открытия настроек списка"))
 
-                            
-                    
-                
+                each task in tasks.done
+                    div.tasks-task
+                        div.tasks-task__title-container.priority_high-level
+                            h3.tasks-task__title #{task.title}
+                        div.tasks-task__description-container
+                            p.tasks-task__description #{task.description}
+                        div.tasks-task__statuses
+                            div.tasks-task__info-done
+                                button.tasks-task__options-button.button
+                                    img(src="/images/arrow.svg")
+                                img(src="/images/messages.png", class="tasks-task-option-messages")
+                            div.tasks-task__time-completed
+                                span.tasks-task__time-date-completed Completed: #{task.completedDate}
+    div.modal-background-disable
+    div.tasks-menu-add
+        div.tasks-menu-add-container
+            h3.tasks-menu-add__title Add new task
+            form.tasks-menu-add-form
+                fieldset.tasks-menu-add-fieldset
+                    div.tasks-menu-add-fieldset__item
+                        label(for="task-name") Enter name :
+                        input(type="text" name="task-name" class="tasks-menu-add-fieldset__input tasks-menu-add-fieldset__area")
+                        button(type="button" class="tasks-menu-add-fieldset__clear-field-button")
+                            img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")
+                    div.tasks-menu-add-fieldset__item   
+                        label(for="task-tags") Enter tags :
+                        input(type="text" name="task-tags" class="tasks-menu-add-fieldset__input tasks-menu-add-fieldset__area")
+                        button(type="button" class="tasks-menu-add-fieldset__clear-field-button")
+                            img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")
+                    div.tasks-menu-add-fieldset__item   
+                        label(for="task-description") Description :
+                        textarea(name="task-description" class="tasks-menu-add-fieldset__textarea tasks-menu-add-fieldset__area" rows="10")
+                        button(type="button" class="tasks-menu-add-fieldset__clear-field-button")
+                            img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")         
