@@ -27,7 +27,7 @@ block content
 
                 each task in tasks.todo
                     div.tasks-task
-                        div.tasks-task__title-container.priority_high-level
+                        div.tasks-task__title-container.priority_high
                             h3.tasks-task__title #{task.title}
                         div.tasks-task__description-container
                             p.tasks-task__description #{task.description}
@@ -49,7 +49,7 @@ block content
 
                 each task in tasks.inWork
                     div.tasks-task
-                        div.tasks-task__title-container.priority_high-level
+                        div.tasks-task__title-container.priority_high
                             h3.tasks-task__title #{task.title}
                         div.tasks-task__description-container
                             p.tasks-task__description #{task.description}
@@ -71,7 +71,7 @@ block content
 
                 each task in tasks.done
                     div.tasks-task
-                        div.tasks-task__title-container.priority_high-level
+                        div.tasks-task__title-container.priority_high
                             h3.tasks-task__title #{task.title}
                         div.tasks-task__description-container
                             p.tasks-task__description #{task.description}
@@ -83,14 +83,20 @@ block content
                             div.tasks-task__time-completed
                                 span.tasks-task__time-date-completed Completed: #{task.completedDate}
     div.modal-background-disable
-    div.tasks-menu-add
+    section.tasks-menu-add
         div.tasks-menu-add-container
-            h3.tasks-menu-add__title Add new task
-            form.tasks-menu-add-form
+            form(action="/addTask" method="POST" class="tasks-menu-add-form")
+                header.tasks-menu-add-form__header
+                    h3.tasks-menu-add-form__title Add new task
+                    fieldset.tasks-menu-add-form-priority
+                        input(type="radio" title="high priority" name="priority" value="high" class="tasks-menu-add-form-priority__item priority_high")
+                        input(type="radio" title="medium priority" name="priority" value="medium" class="tasks-menu-add-form-priority__item priority_medium")
+                        input(type="radio" title="low priority" name="priority" value="low" class="tasks-menu-add-form-priority__item priority_low")
+                        input(type="radio" title="extra-low priority" name="priority" value="extra-low" class="tasks-menu-add-form-priority__item priority_extra-low")     
                 fieldset.tasks-menu-add-fieldset
                     div.tasks-menu-add-fieldset__item
-                        label(for="task-name") Enter name :
-                        input(type="text" name="task-name" class="tasks-menu-add-fieldset__input tasks-menu-add-fieldset__area")
+                        label(for="title") Enter name :
+                        input(type="text" name="title" class="tasks-menu-add-fieldset__input tasks-menu-add-fieldset__area")
                         button(type="button" class="tasks-menu-add-fieldset__clear-field-button")
                             img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")
                     div.tasks-menu-add-fieldset__item   
@@ -99,7 +105,9 @@ block content
                         button(type="button" class="tasks-menu-add-fieldset__clear-field-button")
                             img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")
                     div.tasks-menu-add-fieldset__item   
-                        label(for="task-description") Description :
-                        textarea(name="task-description" class="tasks-menu-add-fieldset__textarea tasks-menu-add-fieldset__area" rows="10")
+                        label(for="description") Description :
+                        textarea(name="description" class="tasks-menu-add-fieldset__textarea tasks-menu-add-fieldset__area" rows="10")
                         button(type="button" class="tasks-menu-add-fieldset__clear-field-button")
-                            img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")         
+                            img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")
+                    input(type="hidden" name="field" value="todo" class="tasks-menu-add-form-field")        
+                    input(type="submit" value="+" class="tasks-menu-add-fieldset__item tasks-menu-add-fieldset__submit")     
