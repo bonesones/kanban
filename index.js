@@ -27,8 +27,11 @@ app.post('/addTask', urlencodedParser, (req, res) => {
         return;
     }
 
-    const { title, description, expires, field} = req.body;
+    let { title, description, expires, priority, field } = req.body;
 
+    priority = priority ?? "high";
+
+    console.log(priority)
 
     jsonfile.readFile('./render.json', (err, data) => {
         if(err){
@@ -36,13 +39,14 @@ app.post('/addTask', urlencodedParser, (req, res) => {
         } else {
             let usersObj = data;
 
+            console.log(priority)
+
             usersObj.tasks[field].push({
                 title: title,
                 description: description,
-                expires: expires
+                expires: expires,
+                priority: priority
             })
-
-            console.log(title, description, expires)
 
             jsonfile.writeFile('./render.json', usersObj, { spaces: 2 }, (err) => {
                 if(err){

@@ -5,31 +5,56 @@
       {
         "title": "Название задачи длинное тестовое",
         "description": "Описание задачи",
-        "expires": "1 hour"
+        "expires": "1 hour",
+        "priority": "high"
       },
       {
         "title": "Название задачи",
         "description": "Описание задачи",
-        "expires": "1 hour"
+        "expires": "1 hour",
+        "priority": "medium"
       },
       {
         "title": "Название задачи",
         "description": "Описание задачи",
-        "expires": "1 hour"
+        "expires": "1 hour",
+        "priority": "low"
+      },
+      {
+        "title": "tete",
+        "description": "",
+        "priority": "extra-low"
       }
     ],
     "inWork": [
       {
         "title": "Задача",
         "description": "Задача",
-        "expires": "2 hour"
+        "expires": "2 hour",
+        "priority": "high"
+      },
+      {
+        "title": "",
+        "description": "",
+        "priority": "high"
+      },
+      {
+        "title": "",
+        "description": "",
+        "priority": "high"
+      },
+      {
+        "title": "rewrwr",
+        "description": "",
+        "priority": "low"
       }
     ],
     "done": [
       {
         "title": "Задача",
         "description": "Задача",
-        "completedDate": "2 hour"
+        "completedDate": "2 hour",
+        "priority": "high"
       },
       {
         "title": "Задача",

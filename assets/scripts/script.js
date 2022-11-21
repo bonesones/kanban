@@ -1,21 +1,31 @@
-const tasks = document.querySelector('.main');
+const tasks = document.querySelectorAll('.tasks');
 const modalBackground = document.querySelector('.modal-background-disable')
-const modalAddTask = document.querySelector('.tasks-menu-add')
+const modalAddTaskToDo = document.querySelector('#add-toDo')
+const modalContainer = document.querySelector('.tasks-menu-add')
+const modalAddTaskInWork = document.querySelector('#add-inWork')
 const modalAddTaskHeader = document.querySelector('.tasks-menu-add-form__header')
 const modalAddTaskSubmit = document.querySelector(".tasks-menu-add-fieldset__submit");
 
-const openTaskModal = function(e){
+const openPopupSettings = function(popup){
+    popup.classList.add('tasks__settings-menu_active');
+}
+
+const closePopupSettings = function(popup){
+    popup.classList.remove('tasks__settings-menu_active')
+}
+
+const openTaskModal = function(e, modal){
     const target = e.target;
 
     if(target.classList.contains('tasks__add-button')){
         modalBackground.classList.add('modal-background-disable_active')
-        modalAddTask.classList.add('tasks-menu-add_active')
+        modal.classList.add('tasks-menu-add_active')
     }
 }
 
 const closeTaskModal = function(e){
     modalBackground.classList.remove('modal-background-disable_active')
-    modalAddTask.classList.remove('tasks-menu-add_active')
+    document.querySelector('.tasks-menu-add_active').classList.remove('tasks-menu-add_active')
 }
 
 
@@ -27,15 +37,23 @@ const clearInputValue = function(e){
         parent.querySelector('.tasks-menu-add-fieldset__area').value = "";
     }
 }
+tasks.forEach(task => task.addEventListener('click', (e) => {
+    const target = e.target;
 
-tasks.addEventListener('click', openTaskModal)
+    if(target.closest('.tasks__settings')){
+        let popup = target.closest('.tasks').querySelector('.tasks__settings-menu');
+        openPopupSettings(popup)
+        console.log(target.closest('.task__settings'))
+    }
 
-modalBackground.addEventListener('click', closeTaskModal)
+    if(task.querySelector('.tasks__title').textContent === "To do"){
+        openTaskModal(e, modalAddTaskToDo)
+    } else if (task.querySelector('.tasks__title').textContent === "To do") {
+        openTaskModal(e, modalAddTaskInWork)
+    }
 
-modalAddTask.addEventListener('click', clearInputValue);
+}));
 
-/*modalAddTaskSubmit.addEventListener('submit', (e) => {
-    e.preventDefault();
+modalBackground.addEventListener('click', closeTaskModal);
 
-
-})*/
+modalContainer.addEventListener('click', clearInputValue);
