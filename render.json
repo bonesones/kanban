@@ -3,50 +3,24 @@
   "tasks": {
     "todo": [
       {
-        "title": "Название задачи длинное тестовое",
-        "description": "Описание задачи",
-        "expires": "1 hour",
-        "priority": "high"
-      },
-      {
-        "title": "Название задачи",
-        "description": "Описание задачи",
-        "expires": "1 hour",
-        "priority": "medium"
-      },
-      {
-        "title": "Название задачи",
-        "description": "Описание задачи",
-        "expires": "1 hour",
-        "priority": "low"
-      },
-      {
-        "title": "tete",
+        "title": "as;dAWF'PLQWFPL",
         "description": "",
-        "priority": "extra-low"
+        "priority": "high",
+        "id": 7
+      },
+      {
+        "title": "LQWDPLQ,WPDL1[PDL1[PDL1[P2LD",
+        "description": "",
+        "priority": "high",
+        "id": 8
       }
     ],
     "inWork": [
       {
-        "title": "Задача",
-        "description": "Задача",
-        "expires": "2 hour",
-        "priority": "high"
-      },
-      {
-        "title": "",
-        "description": "",
-        "priority": "high"
-      },
-      {
-        "title": "",
-        "description": "",
-        "priority": "high"
-      },
-      {
-        "title": "rewrwr",
-        "description": "",
-        "priority": "low"
+        "title": "e",
+        "description": "e",
+        "priority": "low",
+        "id": 7
       }
     ],
     "done": [
@@ -54,12 +28,14 @@
         "title": "Задача",
         "description": "Задача",
         "completedDate": "2 hour",
-        "priority": "high"
+        "priority": "high",
+        "id": 5
       },
       {
         "title": "Задача",
         "description": "Задача",
-        "completedDate": "2 hour"
+        "completedDate": "2 hour",
+        "id": 6
       }
     ]
   }

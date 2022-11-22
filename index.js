@@ -11,6 +11,8 @@ app.set('view engine', 'pug');
 
 let vars = null;
 
+let increment = 7;
+
 app.use('/images', express.static(`${__dirname}/assets/images`));
 app.use('/styles', express.static(`${__dirname}/assets/styles`));
 app.use('/scripts', express.static(`${__dirname}/assets/scripts`));
@@ -27,11 +29,8 @@ app.post('/addTask', urlencodedParser, (req, res) => {
         return;
     }
 
-    let { title, description, expires, priority, field } = req.body;
+    let { title, description, expires, priority = "high", field } = req.body;
 
-    priority = priority ?? "high";
-
-    console.log(priority)
 
     jsonfile.readFile('./render.json', (err, data) => {
         if(err){
@@ -39,14 +38,40 @@ app.post('/addTask', urlencodedParser, (req, res) => {
         } else {
             let usersObj = data;
 
-            console.log(priority)
-
             usersObj.tasks[field].push({
                 title: title,
                 description: description,
                 expires: expires,
-                priority: priority
+                priority: priority,
+                id: increment++
             })
+
+            jsonfile.writeFile('./render.json', usersObj, { spaces: 2 }, (err) => {
+                if(err){
+                    throw err;
+                }
+            })
+        }
+    })
+
+    res.redirect('/dashboard')
+
+})
+
+
+app.delete("/removeTask/:tasks/:id",(req, res) => {
+    
+    const { id: taskId , tasks} = req.params;
+
+    jsonfile.readFile('./render.json', (err, data) => {
+        if(err){
+            throw err;
+        } else {
+            let usersObj = data;
+
+            let currentTask = usersObj.tasks[tasks].findIndex(({ id }) => id == taskId)
+
+            usersObj.tasks[tasks].splice(currentTask, 1);
 
             jsonfile.writeFile('./render.json', usersObj, { spaces: 2 }, (err) => {
                 if(err){

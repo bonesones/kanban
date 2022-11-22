@@ -18,7 +18,7 @@ block content
             button.project__calendar-and-recents-button
                 img(src="/images/arrow.svg" class="project__calendar-and-recents-image")
     main.main
-        section.tasks
+        section.tasks(id="todo")
             div.tasks-container
                 header.tasks__header
                     h2.tasks__title To do
@@ -29,7 +29,9 @@ block content
                     button.tasks_edit-task.button edit
                     button.tasks_delete-task.button delete
                 each task in tasks.todo
-                    div.tasks-task
+                    div.tasks-task(id=`${task.id}`)
+                        button(type="button" class="tasks-task__remove-btn")
+                            img(src="/images/delete.svg" class="tasks-task__remove-img" width="32" height="32")
                         div(class=`tasks-task__title-container priority_${task.priority}`)                  
                             h3.tasks-task__title #{task.title}
                         div.tasks-task__description-container
@@ -43,7 +45,7 @@ block content
                                     img(src="/images/time.png")
                                     span.tasks-task__time-counter #{task.expires}
             button.tasks__add-button +
-        section.tasks
+        section.tasks(id="inWork")
             div.tasks-container
                 header.tasks__header
                     h2.tasks__title In work
@@ -54,7 +56,9 @@ block content
                         button.tasks_edit-task.button edit
                         button.tasks_delete-task.button delete
                 each task in tasks.inWork
-                    div.tasks-task
+                    div.tasks-task(id=`${task.id}`)
+                        button(type="button" class="tasks-task__remove-btn")
+                            img(src="/images/delete.svg" class="tasks-task__remove-img" width="32" height="32")
                         div(class=`tasks-task__title-container priority_${task.priority}`)
                             h3.tasks-task__title #{task.title}
                         div.tasks-task__description-container
@@ -68,7 +72,7 @@ block content
                                     img(src="/images/time.png")
                                     span.tasks-task__time-counter #{task.expires}
             button.tasks__add-button +                
-        section.tasks
+        section.tasks(id="done")
             div.tasks-container
                 header.tasks__header
                     h2.tasks__title Done
