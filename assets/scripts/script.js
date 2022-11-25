@@ -7,6 +7,7 @@ const modalAddTaskHeader = document.querySelector('.tasks-menu-add-form__header'
 const modalAddTaskSubmit = document.querySelector(".tasks-menu-add-fieldset__submit");
 let editTaskPopup;
 
+const taskModal = document.querySelector('.modal-task');
 
 const openPopupSettings = function(popup, units){
     popup.classList.add('tasks__settings-menu_active');
@@ -85,6 +86,8 @@ let popup = undefined;
 tasks.forEach(task => task.addEventListener('click', (e) => {
     const target = e.target;
 
+    console.log(target.classList.contains('tasks-task'), target);
+
 
     if(target.closest('.tasks__settings')){
         popup = target.closest('.tasks').querySelector('.tasks__settings-menu');
@@ -92,10 +95,13 @@ tasks.forEach(task => task.addEventListener('click', (e) => {
     } else if(popup && !target.closest('.tasks__settings-menu_active')){
         closePopupSettings(popup)
     }
-    if(task.querySelector('.tasks__title').textContent === "To do"){
+    if(target.classList.contains('tasks__add-button') && task.querySelector('.tasks__title').textContent === "To do"){
         openTaskModal(e, modalAddTaskToDo)
-    } else if (task.querySelector('.tasks__title').textContent === "In work") {
+    } else if (target.classList.contains('tasks__add-button') && task.querySelector('.tasks__title').textContent === "In work") {
         openTaskModal(e, modalAddTaskInWork)
+    } else if(target.classList.contains('tasks-task') || target.closest('tasks-task')){
+        taskModal.classList.add('modal-task_active');
+        modalBackground.classList.add('modal-background-disable_active')
     }
 
 }));

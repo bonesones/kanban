@@ -12,23 +12,44 @@
     justify-content: space-between;
 }
 
-.modal-background-disable{
+.modal{
+    &-background-disable{
 
-    display: none;
+        display: none;
 
-    &_active{
-        display: block;
+        &_active{
+            display: block;
+        }
+
+        position: fixed;
+
+        left: 0;
+        top: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background: rgba(0, 0, 0, 0.3);
     }
+    
+    &-task{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 70%;
+        height: 30%;
+        margin: auto;
+        background-color: white;
 
-    position: fixed;
+        display: none;
 
-    left: 0;
-    top: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    background: rgba(0, 0, 0, 0.3);
+        &_active{
+            display: block;
+            z-index: 100
+        }
+    }
 }
 
 .project{
@@ -440,6 +461,8 @@
         position: relative;
 
         padding: 20px 20px 15px 20px;
+
+        cursor: pointer;
 
         display: flex;
         flex-direction: column;

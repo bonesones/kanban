@@ -1,0 +1,28 @@
+section(class="tasks-menu-add" id="add-inWork")
+        div.tasks-menu-add-container
+            form(action="/addTask" method="POST" class="tasks-menu-add-form")
+                header.tasks-menu-add-form__header
+                    h3.tasks-menu-add-form__title Add new task
+                    fieldset.tasks-menu-add-form-priority
+                        input(type="radio" title="high priority" name="priority" value="high" class="tasks-menu-add-form-priority__item priority_high")
+                        input(type="radio" title="medium priority" name="priority" value="medium" class="tasks-menu-add-form-priority__item priority_medium")
+                        input(type="radio" title="low priority" name="priority" value="low" class="tasks-menu-add-form-priority__item priority_low")
+                        input(type="radio" title="extra-low priority" name="priority" value="extra-low" class="tasks-menu-add-form-priority__item priority_extra-low")     
+                fieldset.tasks-menu-add-fieldset
+                    div.tasks-menu-add-fieldset__item
+                        label(for="title") Enter name :
+                        input(type="text" name="title" class="tasks-menu-add-fieldset__input tasks-menu-add-fieldset__area")
+                        button(type="button" class="tasks-menu-add-fieldset__clear-field-button")
+                            img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")
+                    div.tasks-menu-add-fieldset__item   
+                        label(for="task-tags") Enter tags :
+                        input(type="text" name="task-tags" class="tasks-menu-add-fieldset__input tasks-menu-add-fieldset__area")
+                        button(type="button" class="tasks-menu-add-fieldset__clear-field-button")
+                            img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")
+                    div.tasks-menu-add-fieldset__item   
+                        label(for="description") Description :
+                        textarea(name="description" class="tasks-menu-add-fieldset__textarea tasks-menu-add-fieldset__area" rows="10")
+                        button(type="button" class="tasks-menu-add-fieldset__clear-field-button")
+                            img(src="/images/delete.svg" class="tasks-menu-add-fieldset__clear-field-button-image")
+                    input(type="hidden" name="field" value="inWork" class="tasks-menu-add-form-field")        
+                    input(type="submit" value="+" class="tasks-menu-add-fieldset__item tasks-menu-add-fieldset__submit")                     
